@@ -43,7 +43,7 @@ public class Tester
 		this.results = new File(root, "results");
 		this.tests = new File(root, "tests");
 		this.compiler = compiler;
-		this.binary = compiler.compile(root);
+		this.binary = compiler.compile();
 	}
 
 	private Process getProcess() throws IOException
@@ -101,8 +101,8 @@ public class Tester
 	 */
 	public static void main(String[] args)
 	{
-		Compiler compiler = new Compiler();
 		File currentDirectory = new File(System.getProperty("user.dir"));
+		Compiler compiler = new Compiler(currentDirectory);
 		Tester tester = new Tester(currentDirectory, compiler);
 	}
 
